@@ -202,6 +202,10 @@ func (k BaseSendKeeper) subUnlockedCoins(ctx sdk.Context, addr sdk.AccAddress, a
 	return nil
 }
 
+func (k BaseSendKeeper) SubUnlockedCoins(ctx sdk.Context, addr sdk.AccAddress, amt sdk.Coins) error {
+	return k.subUnlockedCoins(ctx, addr, amt)
+}
+
 // addCoins increase the addr balance by the given amt. Fails if the provided amt is invalid.
 // It emits a coin received event.
 func (k BaseSendKeeper) addCoins(ctx sdk.Context, addr sdk.AccAddress, amt sdk.Coins) error {
@@ -225,6 +229,10 @@ func (k BaseSendKeeper) addCoins(ctx sdk.Context, addr sdk.AccAddress, amt sdk.C
 	)
 
 	return nil
+}
+
+func (k BaseSendKeeper) AddCoins(ctx sdk.Context, addr sdk.AccAddress, amt sdk.Coins) error {
+	return k.addCoins(ctx, addr, amt)
 }
 
 // initBalances sets the balance (multiple coins) for an account by address.
