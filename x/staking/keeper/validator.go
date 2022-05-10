@@ -32,6 +32,10 @@ func (k Keeper) mustGetValidator(ctx sdk.Context, addr sdk.ValAddress) types.Val
 	return validator
 }
 
+func (k Keeper) MustGetValidator(ctx sdk.Context, addr sdk.ValAddress) types.Validator {
+	return k.mustGetValidator(ctx, addr)
+}
+
 // get a single validator by consensus address
 func (k Keeper) GetValidatorByConsAddr(ctx sdk.Context, consAddr sdk.ConsAddress) (validator types.Validator, found bool) {
 	store := ctx.KVStore(k.storeKey)

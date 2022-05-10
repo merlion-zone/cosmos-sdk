@@ -805,6 +805,12 @@ func (k Keeper) getBeginInfo(
 	}
 }
 
+func (k Keeper) GetBeginInfo(
+	ctx sdk.Context, valSrcAddr sdk.ValAddress,
+) (completionTime time.Time, height int64, completeNow bool) {
+	return k.getBeginInfo(ctx, valSrcAddr)
+}
+
 // Undelegate unbonds an amount of delegator shares from a given validator. It
 // will verify that the unbonding entries between the delegator and validator
 // are not exceeded and unbond the staked tokens (based on shares) by creating

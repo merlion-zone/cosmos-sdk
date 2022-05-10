@@ -271,6 +271,10 @@ func (k Keeper) jailValidator(ctx sdk.Context, validator types.Validator) {
 	k.DeleteValidatorByPowerIndex(ctx, validator)
 }
 
+func (k Keeper) JailValidator(ctx sdk.Context, validator types.Validator) {
+	k.jailValidator(ctx, validator)
+}
+
 // remove a validator from jail
 func (k Keeper) unjailValidator(ctx sdk.Context, validator types.Validator) {
 	if !validator.Jailed {
